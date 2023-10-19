@@ -7,7 +7,15 @@
 </head>
 <body>
 
-👀
+  {% if latest_plants_list %}
+  <ul>
+      {% for plant in latest_plants_list %}
+      <li><a href="/{{ plant.id }}/">{{ plant.plant_name}}</a></li>
+      {% endfor %}
+  </ul>
+  {% else %}
+  <p>No plants are available.</p>
+  {% endif %}
 
 </body>
 </html>
