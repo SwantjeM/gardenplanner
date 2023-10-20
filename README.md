@@ -3,7 +3,12 @@
 This project is a garden planner used to keep track of your seed inventory, planting dates, plant information and more. 
 It also is a work in progress and doesn't really work yet. 
 
-## TODO deployment:
+
+
+
+Some of the initial commits, before I migrated the project here for easier deployment, can be found [here](https://github.com/SwantjeM/garden-planner). 
+
+#### TODO deployment:
 
 - create a new repo (on github -- [go here](https://github.com/new))
 - git add/commit/push all of your code to this new repo
