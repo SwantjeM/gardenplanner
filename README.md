@@ -6,7 +6,7 @@ It also is a work in progress and doesn't really work yet.
 
 
 
-Some of the initial commits, before I migrated the project here for easier deployment, can be found [here]{https://github.com/SwantjeM/garden-planner}. 
+Some of the initial commits, before I migrated the project here for easier deployment, can be found [here](https://github.com/SwantjeM/garden-planner). 
 
 ## TODO deployment:
 
