@@ -76,6 +76,16 @@ a:hover {
     width: 80%;
 }
 
+#BottomNavigation {
+    border-radius: 20px;
+    /* Set the border radius for rounded corners */
+    margin: 0 auto;
+    /* Center the box horizontally */
+    margin-top: 100px;
+    /* Center the box vertically (adjust as needed) */
+    width: 80%;
+}
+
 input {
     background-color: rgb(189, 225, 255);
 }
