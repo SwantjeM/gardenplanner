@@ -1,0 +1,129 @@
+/* Reset some default browser styles */
+body, h1, h2, p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Set garden-themed background image with an overlay */
+body {
+  background-color: beige;
+  background: url("images/leaves_background.webp") repeat center center fixed;
+  background-size: contain;
+  font-family: Arial, sans-serif; /* Default font stack with fallbacks */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+/* Header styles */
+header {
+  /* background-color: #358541eb; /* Dark green header background */
+  background: linear-gradient(to left, #4b9728, #95c857);
+  color: #fff; /* White text color */
+  padding: 10px;
+  text-align: center;
+  width: 80%; /* 80% width */
+  position: fixed; /* Make the header sticky */
+  top: 0; /* Stick to the top of the viewport */
+  z-index: 100; /* Ensure the header appears on top of other content */
+}
+header h1{
+  font-family: 'Roboto', sans-serif; /* Modern font */
+  font-size: 36px;
+  margin: 10px 0;
+  color: #fff;
+}
+
+h1, h2, h3 {
+  font-family: 'Roboto', sans-serif; /* Modern font */
+ /* font-size: 36px; */
+  margin: 10px 0;
+  color: #174d00;
+} 
+
+
+
+/* Main section styles with an overlay */
+main {
+  width: 80%; /* 80% width */
+  margin: 60px auto; /* Add space top and bottom (adjust as needed) */
+  padding: 20px; /* Padding within the box */
+  background: #d4f0b4ac; /* White overlay with transparency */
+  text-align: left; /* Text aligned to the left */
+  min-height: 100vh; /* Cover the full vertical space */
+  overflow: auto; /* Enable vertical scrolling if content exceeds the box */
+}
+
+/* Increase spacing between paragraphs in the main section */
+main p {
+  margin-bottom: 10px; /* Adjust the margin size as needed */
+}
+
+/* Footer styles */
+footer {
+  background: linear-gradient(to left, #4b9728, #95c857);
+  color: #fff; /* White text color */
+  padding: 10px;
+  text-align: center;
+  width: 80%; /* 80% width */
+  position: fixed; /* Stick to the bottom */
+  bottom: 0;
+  z-index: 100; /* Ensure the footer appears on top of other content */
+}
+
+/* Apply a subtle shadow to the header and footer */
+header, footer, main {
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Set the font for links */
+a {
+  font-family: 'Arial', sans-serif;
+  color: #299a03
+}
+
+/* Set the background color for links when hovered */
+a:hover {
+  background-color: #039e08;
+  /* Blue background when hovered */
+  color: #fff;
+  /* White text color when hovered */
+}
+
+#HeadingWrapper {
+  border-radius: 10px;
+  /* Set the border radius for rounded corners */
+  margin: 00 auto;
+  /* Center the box horizontally */
+  margin-top: 50px;
+  /* Center the box vertically (adjust as needed) */
+ /* width: 80%;
+  background-color:  #358541a1; */
+}
+
+#PlantListWrapper {
+  border-radius: 20px;
+  /* Set the border radius for rounded corners */
+  margin: 0 auto;
+  /* Center the box horizontally */
+  margin-top: 50px;
+  margin-bottom: 10px;
+  /* Center the box vertically (adjust as needed) */
+ /*  width: 80%; */
+}
+
+#BottomNavigation {
+  border-radius: 20px;
+  /* Set the border radius for rounded corners */
+  margin: 0 auto;
+  /* Center the box horizontally */
+  margin-top: 100px;
+
+}
+
+input {
+  background-color: rgb(189, 225, 255);
+}

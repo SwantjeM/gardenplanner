@@ -4,28 +4,40 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>index</title>
-  <link rel="stylesheet" href="{% static 'core/style.css' %}">
+  <title>Your Page Title</title>
+  <link rel="stylesheet" href="{% static 'core/styles.css' %}">
 </head>
 <body>
+  <header>
+    <h1>Vancouver Garden Planner</h1>
+  </header>
 
+  <main>
+    
 <div id="HeadingWrapper">
-  <h1>Garden Planner</h1>
-  <p>Do you have too many seeds, and keep forgetting about half of them? Welcome to your garden planner and seed inventory on the internet.</p>
-</div>
+    <h1>Garden Planner</h1>
+    <p>Do you have too many seeds and keep forgetting about half of them? Welcome to your garden planner and seed inventory on the internet!</p>
+    <p>Below you will find an overview of plants in your database. </p>
+    <p>Select one of them to get more information, and see what matching seed varieties you have in your inventory.</p>
+    <p></p>
+  </div>
+  
+  <div id="PlantListWrapper">
+    <h2>Check out some of your plants:</h2>
+    {% if latest_plants_list %}
+    <ul>
+        {% for plant in latest_plants_list %}
+        <li><a href="/{{ plant.id }}/">{{ plant.plant_name}}</a></li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No plants are available.</p>
+    {% endif %}
+  </div>
+  </main>
 
-<div id="PlantListWrapper">
-  <h2>Check out some of your plants:</h2>
-  {% if latest_plants_list %}
-  <ul>
-      {% for plant in latest_plants_list %}
-      <li><a href="/{{ plant.id }}/">{{ plant.plant_name}}</a></li>
-      {% endfor %}
-  </ul>
-  {% else %}
-  <p>No plants are available.</p>
-  {% endif %}
-</div>
-
+  <footer>
+    <p>&copy; 2023 Vancouver</p>
+  </footer>
 </body>
 </html>
