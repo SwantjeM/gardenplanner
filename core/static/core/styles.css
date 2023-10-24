@@ -1,0 +1,52 @@
+/* Reset some default browser styles */
+body, h1, h2, p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Set background color with space on the sides */
+body {
+  background-color: #f3f3f3; /* Subtle gray background */
+  font-family: Arial, sans-serif; /* Default font stack with fallbacks */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Header styles */
+header {
+  background-color: #333; /* Dark gray header background */
+  color: #fff; /* White text color */
+  padding: 10px;
+  text-align: center;
+  width: 80%;
+}
+
+h1 {
+  font-family: 'Roboto', sans-serif; /* Modern font */
+  font-size: 36px;
+  margin: 10px 0;
+}
+
+/* Main section styles */
+main {
+  width: 80%; /* Width of the content box */
+  margin: 20px 0; /* Add space top and bottom */
+  padding: 20px; /* Padding within the box */
+}
+
+/* Footer styles */
+footer {
+  background-color: #333; /* Dark gray footer background */
+  color: #fff; /* White text color */
+  padding: 10px;
+  text-align: center;
+  width: 80%;
+}
+
+/* Apply a subtle shadow to the header and footer */
+header, footer {
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
