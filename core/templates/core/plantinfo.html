@@ -5,9 +5,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>plant info</title>
-  <link rel="stylesheet" href="{% static 'core/style.css' %}">
+  <link rel="stylesheet" href="{% static 'core/styles.css' %}">
 </head>
+
 <body>
+
+    <header>
+        <h1>Vancouver Garden Planner</h1>
+      </header>
+
+      <main>
 
     <div id="PlantListWrapper">
         <h1>{{plant_info.plant_name}} </h1>
@@ -37,6 +44,11 @@
     <div id="BottomNavigation">
         <p> <a href="/">Return Home</a></p>
     </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Vancouver</p>
+      </footer>
 
 </body>
 </html>
