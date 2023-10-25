@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
+from django.utils import timezone
 
 from .models import Plant_info, Seed_inventory
+from .functions import find_entries_in_date_range
 from django.template import loader
 
 
@@ -39,3 +41,24 @@ def varieties(request, plant_info_id):
 
 def vote(request, plant_info_id):
     return HttpResponse("you're voting on plant_info %s." % plant_info_id)
+
+
+def plantnow(request):
+    current_date = timezone.now()
+    indoor_seeding_now = find_entries_in_date_range(
+        Plant_info, "YVR_in_seedDate_start", "YVR_in_seedDate_stop", current_date
+    )
+    transplant_now = find_entries_in_date_range(
+        Plant_info, "YVR_tpDate_start", "YVR_tpDate_stop", current_date
+    )
+    outdoor_seeding_now = find_entries_in_date_range(
+        Plant_info, "YVR_out_seedDate_start", "YVR_out_seedDate_stop", current_date
+    )
+    template = loader.get_template("core/plantnow.html")
+    context = {
+        "indoor_seeding_now": indoor_seeding_now,
+        "transplant_now": transplant_now,
+        "outdoor_seeding_now": outdoor_seeding_now,
+        "current_date": current_date,
+    }
+    return HttpResponse(template.render(context, request))

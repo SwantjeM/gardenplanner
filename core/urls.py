@@ -10,4 +10,5 @@ urlpatterns = [
     path("<int:plant_info_id>/varieties/", views.varieties, name="varieties"),
     # ex: /garden_planner/5/vote
     path("<int:plant_info_id>/vote/", views.vote, name="vote"),
+    path("plantnow", views.plantnow, name="plantnow"),
 ]
