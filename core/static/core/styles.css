@@ -9,7 +9,7 @@ body {
   background-color: beige;
   background: url("images/leaves_background.webp") repeat center center fixed;
   background-size: contain;
-  font-family: Arial, sans-serif; /* Default font stack with fallbacks */
+  font-family: Verdana, sans-serif; /* Default font stack with fallbacks */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -81,7 +81,7 @@ header, footer, main {
 
 /* Set the font for links */
 a {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Verdana', sans-serif;
   color: #299a03
 }
 
@@ -125,5 +125,5 @@ a:hover {
 }
 
 input {
-  background-color: rgb(189, 225, 255);
+  background-color: rgb(253, 255, 199);
 }

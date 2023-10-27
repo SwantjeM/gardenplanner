@@ -1,10 +1,12 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.utils import timezone
+from django.template import loader
 
 from .models import Plant_info, Seed_inventory
 from .functions import find_entries_in_date_range
-from django.template import loader
+from .forms import DateFilterForm
+from datetime import datetime
 
 
 # Create your views here.
@@ -44,21 +46,31 @@ def vote(request, plant_info_id):
 
 
 def plantnow(request):
-    current_date = timezone.now()
+    selected_date = timezone.now()
+    if request.GET.get("plant_now_date"):
+        try:
+            selected_date = datetime.strptime(
+                request.GET.get("plant_now_date"), "%Y-%m-%d"
+            )
+        except:
+            pass
+
     indoor_seeding_now = find_entries_in_date_range(
-        Plant_info, "YVR_in_seedDate_start", "YVR_in_seedDate_stop", current_date
+        Plant_info, "YVR_in_seedDate_start", "YVR_in_seedDate_stop", selected_date
     )
     transplant_now = find_entries_in_date_range(
-        Plant_info, "YVR_tpDate_start", "YVR_tpDate_stop", current_date
+        Plant_info, "YVR_tpDate_start", "YVR_tpDate_stop", selected_date
     )
     outdoor_seeding_now = find_entries_in_date_range(
-        Plant_info, "YVR_out_seedDate_start", "YVR_out_seedDate_stop", current_date
+        Plant_info, "YVR_out_seedDate_start", "YVR_out_seedDate_stop", selected_date
     )
-    template = loader.get_template("core/plantnow.html")
-    context = {
-        "indoor_seeding_now": indoor_seeding_now,
-        "transplant_now": transplant_now,
-        "outdoor_seeding_now": outdoor_seeding_now,
-        "current_date": current_date,
-    }
-    return HttpResponse(template.render(context, request))
+    return render(
+        request,
+        "core/plantnow.html",
+        {
+            "indoor_seeding_now": indoor_seeding_now,
+            "transplant_now": transplant_now,
+            "outdoor_seeding_now": outdoor_seeding_now,
+            "selected_date": selected_date,
+        },
+    )

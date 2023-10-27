@@ -18,7 +18,13 @@
 
     <div id="PlantListWrapper">
         <h2> What can I plant right now?</h2>
-        <p> On {{current_date |date:"F j" }}</p>
+        <p> On {{selected_date |date:"F j" }}</p>
+        <form method="get" action="{% url 'plantnow' %}">
+            <input type="date" name="plant_now_date" value={{request.GET.plant_now_date}}>
+            <input type="submit" value="Submit">
+          </form>
+
+
         <div>
             {% if indoor_seeding_now %}
             <h3> Indoor seeding:</h3>
