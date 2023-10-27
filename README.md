@@ -1,7 +1,7 @@
 # Garden Planner
 
 This project is a garden planner used to keep track of your seed inventory, planting dates, plant information and more. 
-It also is a work in progress and doesn't really work yet. 
+It also is a work in progress.
 
 
 
