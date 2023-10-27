@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>plant info</title>
+  <link rel="stylesheet" href="{% static 'core/styles.css' %}">
+</head>
+
+<body>
+
+    <header>
+        <h1>Vancouver Garden Planner</h1>
+      </header>
+
+      <main>
+
+    <div id="PlantListWrapper">
+        <h1>{{seed_info.seed_name}} </h1>
+        <p>Plant type: {{seed_info.plant_name}}</p>
+        <p>Size type: {{seed_info.size_type}}</p>
+        <p>Plant height (cm): {{seed_info.height_cm}}</p>
+        <p>Plant width (cm): {{seed_info.width_cm}}</p>
+    </div>
+    <div id="PlantListWrapper">
+        <h2> Seed information:</h2>
+        <p> Seed year: {{seed_info.seed_year}}</p>
+        <p> Seed source: {{seed_info.seed_source }}</p>
+        <p> More information: <a href="{{seed_info.seed_link}}">external link</a></p>
+    </div>
+
+    <div id="NotesWrapper">
+        <h3> Notes: </h3>
+        <p> {{seed_info.seed_notes}}</p>
+        <p> Rating: {{seed_info.rating}}/5</p>
+    </div>
+
+    <div id="PlantListWrapper">
+        <h3>Other {{seed_info.plant_name}} varieties in your seed inventory:</h3>
+        {% if variety_list %}
+            <ul>
+                {% for plant in variety_list %}
+                <li><a href="/garden_planner/{{ plant.id }}/">{{ plant.seed_name}}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+        <p>No plants are available.</p>
+        {% endif %}
+    </div>
+
+    <div id="BottomNavigation">
+        <p> <a href="/">Return Home</a></p>
+    </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Vancouver</p>
+      </footer>
+
+</body>
+</html>

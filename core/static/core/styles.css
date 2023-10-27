@@ -115,6 +115,21 @@ a:hover {
  /*  width: 80%; */
 }
 
+#NotesWrapper {
+  border-radius: 20px;
+  /* Set the border radius for rounded corners */
+  background: rgb(250, 255, 215);
+  margin: 0 auto;
+  /* Center the box horizontally */
+  margin-top: 50px;
+  margin-bottom: 10px;
+  padding: 10px;
+  padding-top: 5px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  /* Center the box vertically (adjust as needed) */
+ /*  width: 80%; */
+}
+
 #BottomNavigation {
   border-radius: 20px;
   /* Set the border radius for rounded corners */

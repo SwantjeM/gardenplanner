@@ -11,7 +11,7 @@ from datetime import datetime
 
 # Create your views here.
 def index(request):
-    latest_plants_list = Plant_info.objects.order_by("-pub_date")[:5]
+    latest_plants_list = Plant_info.objects.order_by("-pub_date")[:10]
     template = loader.get_template("core/index.html")
     context = {"latest_plants_list": latest_plants_list}
     return HttpResponse(template.render(context, request))
@@ -31,6 +31,13 @@ def detail(request, plant_info_id):
     variety_list = Seed_inventory.objects.filter(plant_name_id=plant_info_id)
     context = {"plant_info": plant_info, "variety_list": variety_list}
     return render(request, "core/plantinfo.html", context)
+
+
+def seedinfo(request, seed_info_id):
+    seed_info = get_object_or_404(Seed_inventory, id=seed_info_id)
+    variety_list = Seed_inventory.objects.filter(plant_name_id=seed_info_id)
+    context = {"seed_info": seed_info, "variety_list": variety_list}
+    return render(request, "core/seedinfo.html", context)
 
 
 def varieties(request, plant_info_id):
