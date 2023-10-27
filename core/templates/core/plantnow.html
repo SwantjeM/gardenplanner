@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>plant info</title>
+  <link rel="stylesheet" href="{% static 'core/styles.css' %}">
+</head>
+
+<body>
+
+    <header>
+        <h1>Vancouver Garden Planner</h1>
+      </header>
+
+      <main>
+
+    <div id="PlantListWrapper">
+        <h2> What can I plant right now?</h2>
+        <p> On {{selected_date |date:"F j" }}</p>
+        <form method="get" action="{% url 'plantnow' %}">
+            <input type="date" name="plant_now_date" value={{request.GET.plant_now_date}}>
+            <input type="submit" value="Submit">
+          </form>
+
+
+        <div>
+            {% if indoor_seeding_now %}
+            <h3> Indoor seeding:</h3>
+            <ul>
+                {% for plant in indoor_seeding_now %}
+                <li><a href="/{{ plant.id }}/">{{ plant.plant_name}}</a></li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <div>
+            {% if outdoor_seeding_now %}
+            <h3> Outdoor seeding:</h3>
+            <ul>
+                {% for plant in outdoor_seeding_now %}
+                <li><a href="/{{ plant.id }}/">{{ plant.plant_name}}</a></li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <div>
+            {% if transplant_now %}
+            <h3> Transplant outside:</h3>
+            <ul>
+                {% for plant in transplant_now %}
+                <li><a href="/{{ plant.id }}/">{{ plant.plant_name}}</a></li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+
+    <div id="BottomNavigation">
+        <p> <a href="/">Return Home</a></p>
+    </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Vancouver</p>
+      </footer>
+
+</body>
+</html>

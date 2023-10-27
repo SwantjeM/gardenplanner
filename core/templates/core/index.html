@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Your Page Title</title>
+  <title>Vancouver Garden Planner</title>
   <link rel="stylesheet" href="{% static 'core/styles.css' %}">
 </head>
 <body>
@@ -33,6 +33,11 @@
     {% else %}
     <p>No plants are available.</p>
     {% endif %}
+  </div>
+
+  <div id="PlantListWrapper">
+    <h2>See what you can plant right now:</h2>
+        <p><a href="/plantnow">What can I plant right now? </a></p>
   </div>
   </main>
 
