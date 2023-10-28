@@ -33,7 +33,7 @@
         {% if variety_list %}
             <ul>
                 {% for plant in variety_list %}
-                <li><a href="/garden_planner/{{ plant.id }}/">{{ plant.seed_name}}</a></li>
+                <li><a href="/seedinventory/{{ plant.id }}">{{ plant.seed_name}}</a></li>
                 {% endfor %}
             </ul>
         {% else %}

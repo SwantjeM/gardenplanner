@@ -18,7 +18,7 @@
 
     <div id="PlantListWrapper">
         <h1>{{seed_info.seed_name}} </h1>
-        <p>Plant type: {{seed_info.plant_name}}</p>
+        <p>Plant type: <a href="/{{ plant.id }}/">{{seed_info.plant_name}}</a></p>
         <p>Size type: {{seed_info.size_type}}</p>
         <p>Plant height (cm): {{seed_info.height_cm}}</p>
         <p>Plant width (cm): {{seed_info.width_cm}}</p>
@@ -41,7 +41,7 @@
         {% if variety_list %}
             <ul>
                 {% for plant in variety_list %}
-                <li><a href="/garden_planner/{{ plant.id }}/">{{ plant.seed_name}}</a></li>
+                <li><a href="/seedinventory/{{ plant.id }}">{{ plant.seed_name}}</a></li>
                 {% endfor %}
             </ul>
         {% else %}
