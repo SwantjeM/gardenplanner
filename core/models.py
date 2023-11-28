@@ -41,6 +41,18 @@ class Plant_info(models.Model):
     plants_per_sqf = models.SmallIntegerField(
         "Plants per square foot", blank=True, null=True
     )
+    EXPOSURE_CHOICES = [
+        ("full_sun", "Full Sun"),
+        ("part_sun", "Part Sun"),
+        ("part_shade", "Part Shade"),
+        ("shade", "Shade"),
+    ]
+
+    sun_exposure = models.CharField(
+        "Sun exposure", max_length=20, choices=EXPOSURE_CHOICES, blank=True, null=True
+    )
+
+    notes = models.TextField(default="", blank=True)
 
     def __str__(self):
         return self.plant_name

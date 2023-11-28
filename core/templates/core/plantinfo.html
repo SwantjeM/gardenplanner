@@ -20,6 +20,9 @@
         <h1>{{plant_info.plant_name}} </h1>
         <p>Family name: {{plant_info.family_name}}</p>
         <p>Plants per Sqare foot: {{plant_info.plants_per_sqf}} </p>
+        {% if plant_info.sun_exposure %}
+        <p>Exposure: {{plant_info.get_sun_exposure_display}} </p>
+        {% endif %}
     </div>
     <div id="PlantListWrapper">
         <h2> Vancouver planting dates:</h2>
@@ -27,6 +30,13 @@
         <p> Transplant: {{plant_info.YVR_tpDate_start |date:"d F" }}- {{plant_info.YVR_tpDate_stop |date:"d F" }}</p>
         <p> Outdoor seeding: {{plant_info.YVR_out_seedDate_start |date:"d F" }}- {{plant_info.YVR_out_seedDate_stop |date:"d F" }}</p>
     </div>
+
+    {% if plant_info.notes %}
+    <div id="NotesWrapper">
+        <h3> Notes: </h3>
+        <p> {{plant_info.notes}}</p>
+    </div>
+    {% endif %}
 
     <div id="PlantListWrapper">
         <h2>Varieties in Seed Inventory:</h2>
