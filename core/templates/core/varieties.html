@@ -1,21 +1,42 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>index</title>
+  <link rel="stylesheet" href="{% static 'core/styles.css' %}">
 </head>
+
 <body>
 
-    {% if variety_list %}
-    <ul>
-        {% for plant in variety_list %}
-        <li><a href="/garden_planner/{{ plant.id }}/">{{ plant.seed_name}}</a></li>
-        {% endfor %}
-    </ul>
-    {% else %}
-    <p>No plants are available.</p>
-    {% endif %}
+  <header>
+    <h1>Vancouver Garden Planner</h1>
+  </header>
+
+  <main>
+
+    <div id="PlantListWrapper">
+      <h1>{{plant_info.plant_name}} Varieties: </h1>
+      {% if variety_list %}
+      <ul>
+          {% for plant in variety_list %}
+          <li><a href="/garden_planner/{{ plant.id }}/">{{ plant.seed_name}}</a></li>
+          {% endfor %}
+      </ul>
+      {% else %}
+      <p>No plants are available.</p>
+      {% endif %}
+
+      <p>Return to <a href="/garden_planner/{{ plant_info.id }}/">{{ plant_info.plant_name}} overview.</a></p>
+
+    </div>
+
+  </main>
+
+  <footer>
+      <p>&copy; 2023 Vancouver</p>
+    </footer>
 
 </body>
 </html>
