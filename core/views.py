@@ -18,7 +18,7 @@ def index(request):
 
 
 def all_plants(request):
-    plant_list = Plant_info.objects.order_by("plant_name")[:10]
+    plant_list = Plant_info.objects.order_by("plant_name")
     template = loader.get_template("core/all_plants.html")
     context = {"plant_list": plant_list}
     return HttpResponse(template.render(context, request))
