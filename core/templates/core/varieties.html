@@ -17,7 +17,7 @@
   <main>
 
     <div id="PlantListWrapper">
-      
+      <h1>{{plant_info.plant_name}} Varieties: </h1>
       {% if variety_list %}
       <ul>
           {% for plant in variety_list %}
@@ -27,6 +27,8 @@
       {% else %}
       <p>No plants are available.</p>
       {% endif %}
+
+      <p>Return to <a href="/garden_planner/{{ plant_info.id }}/">{{ plant_info.plant_name}} overview.</a></p>
 
     </div>
 
