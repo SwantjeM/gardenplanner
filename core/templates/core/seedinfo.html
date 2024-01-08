@@ -6,6 +6,8 @@
         <h1>{{seed_info.seed_name}} </h1>
         <p>Plant type: <a href="/{{ plant.id }}/">{{seed_info.plant_name}}</a></p>
         <p>Size type: {{seed_info.size_type}}</p>
+        <p>OP or F1: {{seed_info.OP_F1}}</p>
+        <p>Days to Maturity: {{seed_info.maturity_days}}</p>
         <p>Plant height (cm): {{seed_info.height_cm}}</p>
         <p>Plant width (cm): {{seed_info.width_cm}}</p>
     </div>
@@ -17,8 +19,13 @@
     </div>
 
     <div id="NotesWrapper">
-        <h3> Notes: </h3>
+        <h3> General Notes: </h3>
         <p> {{seed_info.seed_notes}}</p>
+    </div>
+
+    <div id="NotesWrapper">
+        <h3> Personal Notes: </h3>
+        <p> {{seed_info.manual_notes}}</p>
         <p> Rating: {{seed_info.rating}}/5</p>
     </div>
 
