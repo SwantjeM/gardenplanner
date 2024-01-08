@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<h1>Full Seed Inventory</h1>
+
+{% for plant, seeds in all_seeds.items %}
+<div id="PlantListWrapper">
+    <h2> {{ plant }}</h2>
+    <ul>
+        {% for seed in seeds %}
+        <li><a href="/seedinventory/{{ seed.id }}">{{ seed.seed_name}}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endfor %}
+
+{% endblock content %}

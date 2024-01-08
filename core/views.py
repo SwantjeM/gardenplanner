@@ -7,6 +7,7 @@ from .models import Plant_info, Seed_inventory
 from .functions import find_entries_in_date_range
 from .forms import DateFilterForm
 from datetime import datetime
+from collections import defaultdict
 
 
 # Create your views here.
@@ -42,7 +43,7 @@ def detail(request, plant_info_id):
 
 def seedinfo(request, seed_info_id):
     seed_info = get_object_or_404(Seed_inventory, id=seed_info_id)
-    variety_list = Seed_inventory.objects.filter(plant_name_id=seed_info_id)
+    variety_list = Seed_inventory.objects.filter(plant_name=seed_info.plant_name)
     context = {"seed_info": seed_info, "variety_list": variety_list}
     return render(request, "core/seedinfo.html", context)
 
@@ -54,6 +55,14 @@ def varieties(request, plant_info_id):
     template = loader.get_template("core/varieties.html")
     context = {"plant_info": plant_info, "variety_list": variety_list}
     return HttpResponse(template.render(context, request))
+
+
+def all_seeds(request):
+    all_seeds = Seed_inventory.objects.all().order_by("plant_name")
+    grouped_seeds = defaultdict(list)
+    for seed in all_seeds:
+        grouped_seeds[seed.plant_name].append(seed)
+    return render(request, "core/all_seeds.html", {"all_seeds": dict(grouped_seeds)})
 
 
 def vote(request, plant_info_id):
