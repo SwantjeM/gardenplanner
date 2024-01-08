@@ -43,7 +43,7 @@ def detail(request, plant_info_id):
 
 def seedinfo(request, seed_info_id):
     seed_info = get_object_or_404(Seed_inventory, id=seed_info_id)
-    variety_list = Seed_inventory.objects.filter(plant_name_id=seed_info_id)
+    variety_list = Seed_inventory.objects.filter(plant_name=seed_info.plant_name)
     context = {"seed_info": seed_info, "variety_list": variety_list}
     return render(request, "core/seedinfo.html", context)
 
