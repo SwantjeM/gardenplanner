@@ -5,6 +5,7 @@ from . import views
 urlpatterns = [
     path("", views.index, name="index"),
     path("all_plants/", views.all_plants, name="all_plants"),
+    path("all_seeds/", views.all_seeds, name="all_seeds"),
     # ex: /garden_planner/5
     path("<int:plant_info_id>/", views.detail, name="detail"),
     # ex: /garden_planner/5/varieties
