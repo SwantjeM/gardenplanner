@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vancouver Garden Planner</title>
+  <link rel="stylesheet" href="{% static 'core/styles.css' %}">
+</head>
+<body>
+  <header>
+    <h1>Vancouver Garden Planner</h1>
+  </header>
+
+  <main>
+    {% block content %}{% endblock content %}
+
+    {% block return_home %}
+    <div id="BottomNavigation">
+        <p> <a href="/">Return Home</a></p>
+    </div>
+    {% endblock return_home %}    
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Vancouver</p>
+  </footer>
+</body>
+</html>

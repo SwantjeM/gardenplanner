@@ -1,20 +1,6 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>plant info</title>
-  <link rel="stylesheet" href="{% static 'core/styles.css' %}">
-</head>
+{% extends 'core/base.html' %}
 
-<body>
-
-    <header>
-        <h1>Vancouver Garden Planner</h1>
-      </header>
-
-      <main>
+{% block content %}
 
     <div id="PlantListWrapper">
         <h2> What can I plant right now?</h2>
@@ -63,14 +49,4 @@
     </div>
     </div>
 
-    <div id="BottomNavigation">
-        <p> <a href="/">Return Home</a></p>
-    </div>
-    </main>
-
-    <footer>
-        <p>&copy; 2023 Vancouver</p>
-      </footer>
-
-</body>
-</html>
+{% endblock content %}
